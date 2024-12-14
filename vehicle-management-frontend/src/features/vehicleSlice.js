@@ -10,19 +10,19 @@ const initialState = {
 
 // Async thunk for fetching vehicles
 export const fetchVehicles = createAsyncThunk('vehicles/fetchVehicles', async () => {
-  const response = await axios.get('http://localhost:5000/api/vehicles');
+  const response = await axios.get('https://vehicle-manaagement-system-fulllstack-1.onrender.com/api/vehicles');
   return response.data;
 });
 
 // Async thunk for adding a vehicle
 export const addVehicle = createAsyncThunk('vehicles/addVehicle', async (vehicle) => {
-  const response = await axios.post('http://localhost:5000/api/vehicles', vehicle);
+  const response = await axios.post('https://vehicle-manaagement-system-fulllstack-1.onrender.com/api/vehicles', vehicle);
   return response.data;
 });
 
 // Async thunk for updating a vehicle
 export const updateVehicle = createAsyncThunk('vehicles/updateVehicle', async ({ vehicleId, updatedVehicle }) => {
-  const response = await axios.put(`http://localhost:5000/api/vehicles/${vehicleId}`, updatedVehicle);
+  const response = await axios.put(`https://vehicle-manaagement-system-fulllstack-1.onrender.com/api/vehicles/${vehicleId}`, updatedVehicle);
   return response.data;
 });
 
