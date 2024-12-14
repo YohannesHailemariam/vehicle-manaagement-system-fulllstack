@@ -1,12 +1,14 @@
 {
   "name": "vehicle-management",
   "version": "1.0.0",
-  "description": "",
+  "description": "A vehicle management backend using Express and MongoDB.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "echo 'No build step required'"
   },
-  "keywords": [],
+  "keywords": ["vehicle", "management", "backend", "express", "mongodb"],
   "author": "",
   "license": "ISC",
   "dependencies": {
