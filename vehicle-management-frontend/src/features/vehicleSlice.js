@@ -26,12 +26,6 @@ export const updateVehicle = createAsyncThunk('vehicles/updateVehicle', async ({
   return response.data;
 });
 
-// Async thunk for deleting a vehicle
-export const deleteVehicle = createAsyncThunk('vehicles/deleteVehicle', async (vehicleId) => {
-  await axios.delete(`http://localhost:5000/api/vehicles/${vehicleId}`);
-  return vehicleId; // Return the ID to remove from state
-});
-
 // Create a slice of the state
 const vehicleSlice = createSlice({
   name: 'vehicles',
@@ -51,6 +45,8 @@ const vehicleSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(addVehicle.fulfilled, (state, action) => {
+        console.log(action.payload);
+        
         state.vehicles.push(action.payload);
       })
       .addCase(updateVehicle.fulfilled, (state, action) => {
@@ -58,9 +54,6 @@ const vehicleSlice = createSlice({
         if (index !== -1) {
           state.vehicles[index] = action.payload;
         }
-      })
-      .addCase(deleteVehicle.fulfilled, (state, action) => {
-        state.vehicles = state.vehicles.filter(vehicle => vehicle._id !== action.payload);
       });
   },
 });

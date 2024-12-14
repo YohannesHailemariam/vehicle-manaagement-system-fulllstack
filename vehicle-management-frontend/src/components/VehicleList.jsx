@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchVehicles, updateVehicle, deleteVehicle } from '../features/vehicleSlice';
+import { fetchVehicles, updateVehicle } from '../features/vehicleSlice';
 import UpdateVehicleForm from './UpdateVehicleForm';
 
 const VehicleList = () => {
@@ -21,9 +21,6 @@ const VehicleList = () => {
     setSelectedVehicle(null); // Close the update form
   };
 
-  const handleDelete = (vehicleId) => {
-    dispatch(deleteVehicle(vehicleId));
-  };
 
   if (status === 'loading') {
     return <div>Loading...</div>;
@@ -61,13 +58,7 @@ const VehicleList = () => {
                   onClick={() => handleUpdate(vehicle._id)}
                   className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"
                 >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(vehicle._id)}
-                  className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700"
-                >
-                  Delete
+                  Edit Vehicle Status
                 </button>
               </td>
             </tr>

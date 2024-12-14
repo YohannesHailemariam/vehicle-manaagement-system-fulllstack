@@ -4,14 +4,14 @@ import { addVehicle } from '../features/vehicleSlice';
 
 const AddVehicleForm = () => {
   const [name, setName] = useState('');
-  const [status, setStatus] = useState('Available');
+  const [status, setStatus] = useState('available');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addVehicle({ name, status }));
     setName('');
-    setStatus('Available');
+    setStatus('available');
   };
 
   return (
@@ -29,13 +29,15 @@ const AddVehicleForm = () => {
       <div>
         <label className="block text-gray-700">Status</label>
         <select
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          className="w-full p-2 border rounded"
-        >
-          <option value="Available">Available</option>
-          <option value="Unavailable">Unavailable</option>
-        </select>
+  value={status}
+  onChange={(e) => setStatus(e.target.value)}
+  className="w-full p-2 border rounded"
+>
+  <option value="available">Available</option>
+  <option value="unavailable">Unavailable</option>
+  <option value="maintainance">Maintenance</option>
+</select>
+
       </div>
       <button
         type="submit"
