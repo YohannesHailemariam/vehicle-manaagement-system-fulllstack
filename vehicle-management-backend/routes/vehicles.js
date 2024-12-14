@@ -5,6 +5,7 @@ const router = express.Router();
 // Add a new vehicle
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body);
     const vehicle = new Vehicle(req.body);
     await vehicle.save();
     res.status(201).json(vehicle);
